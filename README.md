@@ -1,27 +1,23 @@
-#volca-beats
+# volca-beats
 
-##node.js driver for korg VOLCA BEATS vintage analogue synthesizer
+## node.js driver for korg VOLCA BEATS vintage analogue synthesizer
 
-###Introduction
-
-
-###Installation
-
+### Installation
 ```
 npm install volca-beats
 ```
 
-###Usage
-Examples must be compiled using `babel` or another compiler and run in the browser, as `volca-beats uses the `web midi` api. You can still use the note codes and parameter codes available if you want to create a node-based library.
-####Quick Start Example
+### Usage
+Examples must be compiled using `babel` or another compiler and run in the browser, as `volca-beats uses the `web midi` api. You can still use the note codes and parameter codes available if you want to create a node-based library. See this package for an example.
+
+#### Quick Start Example
 ```javascript
 import { transmit, Message, Note } from 'volca-beats';
 transmit(Message.NOTE_ON(Note.KICK), window.performance.now() + 1000);
 /* kick drum will sound in one second */
 ```
 
-####Sequence With JavaScript, then Playback with VOLCA BEATS
-
+#### Sequence With JavaScript, then Playback with VOLCA BEATS
 ```javascript
 let time = window.performance.now();
 for (let i = 0x00; i < 0x7F; i++) {
@@ -33,17 +29,16 @@ for (let i = 0x00; i < 0x7F; i++) {
 /* plays back a catchy drum beat */
 ```
 
-###Reference
-####Note
+### Reference
+#### Note
 A dictionary containing references to the hexadecimal codes to sound each note.
 
 ```javascript
 import { transmit, Message, Note } from 'volca-beats';
-console.log(Note.SNARE) //0x26
 transmit(Message.NOTE_ON(Note.SNARE));
 ```
 
-####ParameterCode
+#### ParameterCode
 A dictionary containing references to each parameter code recognized by VOLCA BEATS.
 
 ```javascript
