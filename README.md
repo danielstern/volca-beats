@@ -20,6 +20,19 @@ transmit(Message.NOTE_ON(Note.KICK), window.performance.now() + 1000);
 /* kick drum will sound in one second */
 ```
 
+####Sequence With JavaScript, then Playback with VOLCA BEATS
+
+```javascript
+let time = window.performance.now();
+for (let i = 0x00; i < 0x7F; i++) {
+    let fn = n=>n>>(i%0x20)&1;
+    if (fn(0x51111141)) transmit(Message.NOTE_ON(Note.KICK),time + i * 0x40);
+    if (fn(0x60105010)) transmit(Message.NOTE_ON(Note.SNARE),time + i * 0x40);
+    if (fn(0xf5555555)) transmit(Message.NOTE_ON(Note.CL_HAT),time + i * 0x40);
+}
+/* plays back a catchy drum beat */
+```
+
 ###Reference
 ####Note
 A dictionary containing references to the hexadecimal codes to sound each note.
